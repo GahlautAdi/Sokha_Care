@@ -18,6 +18,7 @@ export const dashboardNavigation: NavigationItem[] = [
   { label: 'Dashboard', to: ROUTES.dashboard },
   { label: 'Doctors', to: ROUTES.doctors, description: 'Clinical network' },
   { label: 'Doctor Verification', to: ROUTES.doctorVerification, description: 'Submit credentials', roles: ['DOCTOR'] },
+  { label: 'Availability', to: ROUTES.doctorAvailability, description: 'Manage weekly slots', roles: ['DOCTOR'] },
   {
     label: 'Verification Review',
     to: ROUTES.adminDoctorVerifications,

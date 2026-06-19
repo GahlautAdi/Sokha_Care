@@ -5,6 +5,7 @@ export const ROUTES = {
   dashboard: '/dashboard',
   doctors: '/doctors',
   doctorVerification: '/doctor-verification',
+  doctorAvailability: '/doctor-availability',
   adminDoctorVerifications: '/admin/doctor-verifications',
   appointments: '/appointments',
   pharmacy: '/pharmacy',

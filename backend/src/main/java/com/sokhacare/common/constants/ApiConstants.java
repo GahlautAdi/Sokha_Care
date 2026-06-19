@@ -6,6 +6,7 @@ public final class ApiConstants {
     public static final String AUTH_PATH = API_V1 + "/auth";
     public static final String PROFILE_PATH = API_V1 + "/profile";
     public static final String DOCTOR_VERIFICATION_PATH = API_V1 + "/doctor-verification";
+    public static final String DOCTOR_AVAILABILITY_PATH = API_V1 + "/doctor-availability";
     public static final String ADMIN_PATH = API_V1 + "/admin";
     public static final String HEALTH_PATH = API_V1 + "/health";
     public static final String BEARER_PREFIX = "Bearer ";

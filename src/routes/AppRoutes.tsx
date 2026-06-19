@@ -18,6 +18,7 @@ const EmergencyPage = lazy(() => import('@/pages/EmergencyPage'));
 const AIAssistantPage = lazy(() => import('@/pages/AIAssistantPage'));
 const ProfilePage = lazy(() => import('@/pages/ProfilePage'));
 const DoctorVerificationPage = lazy(() => import('@/pages/DoctorVerificationPage'));
+const DoctorAvailabilityPage = lazy(() => import('@/pages/DoctorAvailabilityPage'));
 const AdminDoctorVerificationPage = lazy(() => import('@/pages/AdminDoctorVerificationPage'));
 const SettingsPage = lazy(() => import('@/pages/SettingsPage'));
 const NotFoundPage = lazy(() => import('@/pages/NotFoundPage'));
@@ -42,6 +43,7 @@ export function AppRoutes() {
           <Route path="/doctors" element={<DoctorsPage />} />
           <Route element={<ProtectedRoute allowedRoles={['DOCTOR']} />}>
             <Route path="/doctor-verification" element={<DoctorVerificationPage />} />
+            <Route path="/doctor-availability" element={<DoctorAvailabilityPage />} />
           </Route>
           <Route element={<ProtectedRoute allowedRoles={['ADMIN', 'SUPER_ADMIN']} />}>
             <Route path="/admin/doctor-verifications" element={<AdminDoctorVerificationPage />} />
