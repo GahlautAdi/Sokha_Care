@@ -1,0 +1,8 @@
+package com.sokhacare.common.exceptions;
+
+public class BusinessException extends RuntimeException {
+
+    public BusinessException(String message) {
+        super(message);
+    }
+}
