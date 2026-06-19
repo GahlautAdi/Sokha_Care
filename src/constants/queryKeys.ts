@@ -1,4 +1,9 @@
 export const QUERY_KEYS = {
+  doctorVerification: {
+    status: ['doctor-verification', 'status'] as const,
+    requests: ['doctor-verification', 'requests'] as const,
+    request: (id: string) => ['doctor-verification', 'requests', id] as const,
+  },
   profile: {
     me: ['profile', 'me'] as const,
     patient: ['profile', 'patient'] as const,

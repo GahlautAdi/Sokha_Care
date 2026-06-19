@@ -9,6 +9,7 @@ import { ProfileOverviewCard } from '@/components/profile/ProfileOverviewCard';
 import { PatientProfileForm } from '@/components/profile/PatientProfileForm';
 import { DoctorProfileForm } from '@/components/profile/DoctorProfileForm';
 import { QUERY_KEYS } from '@/constants/queryKeys';
+import { ROUTES } from '@/constants/routes';
 import { fetchProfileOverview } from '@/services/profile/profileApi';
 import { useAuthStore } from '@/store/authStore';
 import { formatRoleLabel, getPrimaryRole } from '@/utils/auth';
@@ -76,6 +77,13 @@ function ProfilePage() {
           eyebrow={roleLabel}
           title="Profile"
           description="Manage the account details that power Sokha Care profile features."
+          actions={
+            canEditDoctor ? (
+              <Button to={ROUTES.doctorVerification} variant="secondary">
+                Open verification
+              </Button>
+            ) : undefined
+          }
         />
 
         <ProfileOverviewCard profile={profile} />

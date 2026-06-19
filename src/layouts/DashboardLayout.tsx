@@ -6,6 +6,7 @@ import { dashboardNavigation } from '@/constants/navigation';
 import { ROUTES } from '@/constants/routes';
 import { logout } from '@/services/auth/authApi';
 import { useAuthStore } from '@/store/authStore';
+import type { Role } from '@/types/auth';
 import { formatRoleLabel, getPrimaryRole, getUserDisplayName } from '@/utils/auth';
 import { cn } from '@/utils/cn';
 
@@ -15,6 +16,15 @@ export function DashboardLayout() {
   const role = getPrimaryRole(user);
   const roleLabel = formatRoleLabel(role);
   const displayName = getUserDisplayName(user);
+  const roles = user?.roles ?? [];
+
+  const visibleNavigation = dashboardNavigation.filter((item) => {
+    if (!item.roles || item.roles.length === 0) {
+      return true;
+    }
+
+    return item.roles.some((allowedRole) => roles.includes(allowedRole as Role));
+  });
 
   const handleLogout = async () => {
     await logout();
@@ -29,7 +39,7 @@ export function DashboardLayout() {
             <AppBrand />
           </div>
           <nav className="flex-1 space-y-1 p-4">
-            {dashboardNavigation.map((item) => (
+            {visibleNavigation.map((item) => (
               <Button
                 key={item.to}
                 to={item.to}
@@ -71,7 +81,7 @@ export function DashboardLayout() {
               </div>
             </div>
             <nav className="flex gap-2 overflow-x-auto border-t border-slate-200 px-4 py-3 lg:hidden">
-              {dashboardNavigation.map((item) => (
+              {visibleNavigation.map((item) => (
                 <Button key={item.to} to={item.to} variant="ghost" size="sm" className="whitespace-nowrap">
                   {item.label}
                 </Button>

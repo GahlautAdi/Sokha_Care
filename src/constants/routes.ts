@@ -4,6 +4,8 @@ export const ROUTES = {
   register: '/register',
   dashboard: '/dashboard',
   doctors: '/doctors',
+  doctorVerification: '/doctor-verification',
+  adminDoctorVerifications: '/admin/doctor-verifications',
   appointments: '/appointments',
   pharmacy: '/pharmacy',
   emergency: '/emergency',

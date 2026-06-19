@@ -17,6 +17,8 @@ const PharmacyPage = lazy(() => import('@/pages/PharmacyPage'));
 const EmergencyPage = lazy(() => import('@/pages/EmergencyPage'));
 const AIAssistantPage = lazy(() => import('@/pages/AIAssistantPage'));
 const ProfilePage = lazy(() => import('@/pages/ProfilePage'));
+const DoctorVerificationPage = lazy(() => import('@/pages/DoctorVerificationPage'));
+const AdminDoctorVerificationPage = lazy(() => import('@/pages/AdminDoctorVerificationPage'));
 const SettingsPage = lazy(() => import('@/pages/SettingsPage'));
 const NotFoundPage = lazy(() => import('@/pages/NotFoundPage'));
 
@@ -38,6 +40,12 @@ export function AppRoutes() {
         <Route element={<DashboardLayout />}>
           <Route path="/dashboard" element={<DashboardPage />} />
           <Route path="/doctors" element={<DoctorsPage />} />
+          <Route element={<ProtectedRoute allowedRoles={['DOCTOR']} />}>
+            <Route path="/doctor-verification" element={<DoctorVerificationPage />} />
+          </Route>
+          <Route element={<ProtectedRoute allowedRoles={['ADMIN', 'SUPER_ADMIN']} />}>
+            <Route path="/admin/doctor-verifications" element={<AdminDoctorVerificationPage />} />
+          </Route>
           <Route path="/appointments" element={<AppointmentsPage />} />
           <Route path="/pharmacy" element={<PharmacyPage />} />
           <Route path="/emergency" element={<EmergencyPage />} />
